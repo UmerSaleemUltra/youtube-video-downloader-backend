@@ -4,7 +4,6 @@ import ytdl from 'ytdl-core';
 const app = express();
 app.use(express.json());
 
-const port = 3000;
 
 app.get('/api/download/youtube', async (req, res) => {
   const { url } = req.query;
@@ -28,6 +27,3 @@ app.get('/api/download/youtube', async (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
