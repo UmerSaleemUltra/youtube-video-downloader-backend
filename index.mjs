@@ -4,7 +4,6 @@ import ytdl from 'ytdl-core';
 const app = express();
 app.use(express.json());
 
-
 app.get('/api/download/youtube', async (req, res) => {
   const { url } = req.query;
 
@@ -26,4 +25,5 @@ app.get('/api/download/youtube', async (req, res) => {
   }
 });
 
-
+// ✅ Export the app for Vercel
+export default app;
