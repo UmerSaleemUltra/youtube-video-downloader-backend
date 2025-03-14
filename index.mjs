@@ -12,15 +12,7 @@ app.get('/api/download/youtube', async (req, res) => {
   }
 
   try {
-    const info = await ytdl.getInfo(url, {
-      requestOptions: {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-          'X-Forwarded-For': '123.456.78.90' // Replace with a real proxy IP
-        }
-      }
-    });
-
+    const info = await ytdl.getInfo(url);
     const format = ytdl.chooseFormat(info.formats, { quality: '18' }) || ytdl.chooseFormat(info.formats, { quality: 'highest' });
 
     res.setHeader('Content-Disposition', `attachment; filename="video.mp4"`);
@@ -33,4 +25,5 @@ app.get('/api/download/youtube', async (req, res) => {
   }
 });
 
-export default app
+// ✅ Export the app for Vercel
+export default app;
